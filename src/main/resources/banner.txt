@@ -1,0 +1,6 @@
+
+
+SpringBoot starting
+by Aleksandr Andreichenko
+
+:: Built with Spring Boot :: ${spring-boot.version}
