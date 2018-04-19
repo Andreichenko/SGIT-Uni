@@ -1,21 +1,20 @@
 package org.frei.springboot.students.university.model;
 
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
-import java.io.Serializable;
 
-
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @MappedSuperclass
-public class BaseEntity implements Serializable {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class NamedEntity extends BaseEntity{
 
-    private Integer id;
+    @Column(name = "name")
+    private String name;
+
 }
