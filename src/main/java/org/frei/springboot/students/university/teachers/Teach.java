@@ -11,11 +11,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "student")
+@Table(name = "teacher")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class StudentObject extends NamedEntity {
+public class Teach extends NamedEntity {
 
     @Column(name = "birth_day")
     @Temporal(TemporalType.DATE)

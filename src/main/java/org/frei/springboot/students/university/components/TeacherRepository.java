@@ -7,9 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 
-public interface StudentRepository{
+public interface TeacherRepository {
 
     @Transactional(readOnly = true)
     @Cacheable("students")
-    Collection<Student> findAll() throws DataAccessException;
+    Collection<Teacher> findAll() throws DataAccessException;
 }

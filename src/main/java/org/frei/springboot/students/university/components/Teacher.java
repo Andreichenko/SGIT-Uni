@@ -13,29 +13,29 @@ import java.util.*;
 
 
 @Entity
-@Table(name = "students")
-public class Student extends Person{
+@Table(name = "teachers")
+public class Teacher extends Person{
 
-    @JoinTable(name = "student_teachers",
-            joinColumns = @JoinColumn(name = "student_id"),
+    @JoinTable(name = "teachers",
+            joinColumns = @JoinColumn(name = "teacher_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id"))
-    private Set<Teachers> teachers;
+    private Set<Specials> teachers;
 
-    protected Set<Teachers> getTeachersInternal() {
+    protected Set<Specials> getTeachersInternal() {
         if (this.teachers == null) {
             this.teachers = new HashSet<>();
         }
         return this.teachers;
     }
-// todo Entiity Student????
 
-    protected void setTeachersInternal(Set<Teachers> teachers){
+
+    protected void setTeachersInternal(Set<Specials> teachers){
         this.teachers = teachers;
     }
 
     @XmlElement
-    public List<Teachers> getTeachers(){
-    List<Teachers> sortedTeach = new ArrayList<>(getTeachersInternal());
+    public List<Specials> getTeachers(){
+    List<Specials> sortedTeach = new ArrayList<>(getTeachersInternal());
         PropertyComparator.sort(sortedTeach,
                 new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedTeach);
@@ -45,8 +45,8 @@ public class Student extends Person{
         return getTeachersInternal().size();
     }
 
-    public void addTeacher(Teachers teachers){
-        getTeachersInternal().add(teachers);
+    public void addTeacher(Specials specials){
+        getTeachersInternal().add(specials);
     }
 
 }

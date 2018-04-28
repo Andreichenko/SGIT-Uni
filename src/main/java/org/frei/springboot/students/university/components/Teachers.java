@@ -1,12 +1,22 @@
 package org.frei.springboot.students.university.components;
 
-import org.frei.springboot.students.university.model.NamedEntity;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.io.Serializable;
 
-@Entity
-@Table(name = "teachers")
-public class Teachers extends NamedEntity implements Serializable{
+@XmlRootElement
+public class Teachers {
+
+    private List<Teacher> teachers;
+
+    @XmlElement
+    public List<Teacher> getStudents() {
+        if (teachers == null){
+            teachers = new ArrayList<>();
+        }
+
+        return teachers;
+    }
 }
