@@ -1,4 +1,4 @@
-package org.frei.springboot.students.university.students;
+package org.frei.springboot.students.university.components;
 
 import org.frei.springboot.students.university.model.Person;
 import org.springframework.beans.support.MutableSortDefinition;
@@ -19,9 +19,9 @@ public class Student extends Person{
     @JoinTable(name = "student_teachers",
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id"))
-    private Set<Teacher> teachers;
+    private Set<Teachers> teachers;
 
-    protected Set<Teacher> getTeachersInternal() {
+    protected Set<Teachers> getTeachersInternal() {
         if (this.teachers == null) {
             this.teachers = new HashSet<>();
         }
@@ -29,13 +29,13 @@ public class Student extends Person{
     }
 // todo Entiity Student????
 
-    protected void setTeachersInternal(Set<Teacher> teachers){
+    protected void setTeachersInternal(Set<Teachers> teachers){
         this.teachers = teachers;
     }
 
     @XmlElement
-    public List<Teacher> getTeachers(){
-    List<Teacher> sortedTeach = new ArrayList<>(getTeachersInternal());
+    public List<Teachers> getTeachers(){
+    List<Teachers> sortedTeach = new ArrayList<>(getTeachersInternal());
         PropertyComparator.sort(sortedTeach,
                 new MutableSortDefinition("name", true, true));
         return Collections.unmodifiableList(sortedTeach);
@@ -45,8 +45,8 @@ public class Student extends Person{
         return getTeachersInternal().size();
     }
 
-    public void addTeacher(Teacher teacher){
-        getTeachersInternal().add(teacher);
+    public void addTeacher(Teachers teachers){
+        getTeachersInternal().add(teachers);
     }
 
 }

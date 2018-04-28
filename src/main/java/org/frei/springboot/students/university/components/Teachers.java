@@ -1,4 +1,4 @@
-package org.frei.springboot.students.university.students;
+package org.frei.springboot.students.university.components;
 
 import org.frei.springboot.students.university.model.NamedEntity;
 
@@ -8,5 +8,5 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "teachers")
-public class Teacher extends NamedEntity implements Serializable{
+public class Teachers extends NamedEntity implements Serializable{
 }

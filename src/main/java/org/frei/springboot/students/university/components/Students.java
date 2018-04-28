@@ -1,4 +1,4 @@
-package org.frei.springboot.students.university.students;
+package org.frei.springboot.students.university.components;
 
 
 
