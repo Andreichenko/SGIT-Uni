@@ -1,6 +1,7 @@
 package org.frei.springboot.students.university.parents;
 
 import org.frei.springboot.students.university.model.Person;
+import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
@@ -59,5 +60,15 @@ public class Parent extends Person {
 
     public void setStudents(Set<Student> students) {
         this.students = students;
+    }
+
+    @Override
+    public String toString() {
+        return "Parent{" +
+                "city='" + city + '\'' +
+                ", adress='" + adress + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", students=" + students +
+                '}';
     }
 }

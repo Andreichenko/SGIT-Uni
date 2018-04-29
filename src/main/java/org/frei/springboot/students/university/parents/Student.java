@@ -12,5 +12,5 @@ import java.util.Date;
 public class Student extends NamedEntity {
 
     private Date birthDay;
-    private StudentType
+    private StudentType studentType;
 }
