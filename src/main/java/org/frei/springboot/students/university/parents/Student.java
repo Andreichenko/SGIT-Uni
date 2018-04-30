@@ -11,6 +11,6 @@ import java.util.Date;
 @Table(name = "students")
 public class Student extends NamedEntity {
 
-    private Date birthDay;
+    private Date birthDay;   // birthday
     private StudentType studentType;
 }

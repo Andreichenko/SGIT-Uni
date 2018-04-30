@@ -63,7 +63,7 @@ public class Parent extends Person {
     }
 
     @Override
-    public String toString() {
+    public String toString() {   // ???? toString method actual ?
         return "Parent{" +
                 "city='" + city + '\'' +
                 ", adress='" + adress + '\'' +
