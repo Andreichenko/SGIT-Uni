@@ -1,12 +1,14 @@
 package org.frei.springboot.students.university.parents;
 
 import org.frei.springboot.students.university.model.Person;
+import org.springframework.beans.support.MutableSortDefinition;
+import org.springframework.beans.support.PropertyComparator;
 import org.springframework.core.style.ToStringCreator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
-import java.util.Set;
+import java.util.*;
 
 
 @Entity
@@ -62,6 +64,13 @@ public class Parent extends Person {
         this.students = students;
     }
 
+    public List<Student> getPets() {
+        List<Student> sortedPets = new ArrayList<>(getStudentInternal());
+        PropertyComparator.sort(sortedPets,
+                new MutableSortDefinition("name", true, true));
+        return Collections.unmodifiableList(sortedPets);
+    }
+
     public Student getStudent(String name, boolean ignoreNew) {
         name = name.toLowerCase();
         for (Student student : getStudentInternal()) {
@@ -74,6 +83,13 @@ public class Parent extends Person {
             }
         }
         return null;
+    }
+
+    protected Set<Student> getStudentInternal(){
+        if (this.students == null){
+            this.students = new HashSet<>();
+        }
+        return this.students;
     }
 
 

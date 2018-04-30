@@ -13,4 +13,9 @@ public class Student extends NamedEntity {
 
     private Date birthDay;   // birthday
     private StudentType studentType;
+
+
+    public void isNew(){
+
+    }
 }
