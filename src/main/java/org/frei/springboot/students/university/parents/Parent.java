@@ -62,6 +62,21 @@ public class Parent extends Person {
         this.students = students;
     }
 
+    public Student getStudent(String name, boolean ignoreNew) {
+        name = name.toLowerCase();
+        for (Student student : getStudentInternal()) {
+            if (!ignoreNew || !student.isNew()) {
+                String compName = student.getName();
+                compName = compName.toLowerCase();
+                if (compName.equals(name)) {
+                    return student;
+                }
+            }
+        }
+        return null;
+    }
+
+
     @Override
     public String toString() {   // ???? toString method actual ?
         return "Parent{" +
