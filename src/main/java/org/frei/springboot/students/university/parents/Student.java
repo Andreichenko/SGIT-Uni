@@ -18,7 +18,7 @@ public class Student extends NamedEntity {
     @JoinColumn(name = "birth_date")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date birthDay;
+    private Date birthDate;
 
     @ManyToOne
     @JoinColumn(name = "student_type")
@@ -31,16 +31,28 @@ public class Student extends NamedEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentId", fetch = FetchType.EAGER)
     private Set<Visit> visits = new LinkedHashSet<>();
 
-    public Date getBirthDay() {
-        return this.birthDay;
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Date getBirthDate() {
+        return this.birthDate;
     }
 
     public StudentType getStudentType() {
         return this.studentType;
     }
 
+    public void setStudentType(StudentType studentType) {
+        this.studentType = studentType;
+    }
+
     public Parent getParent() {
         return this.parent;
+    }
+
+    public void setParent(Parent parent) {
+        this.parent = parent;
     }
 
     protected Set<Visit> getVisitsInternal() {
