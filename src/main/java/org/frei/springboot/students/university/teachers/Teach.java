@@ -23,3 +23,6 @@ public class Teach extends NamedEntity {
     private Date birthDay;
 
 }
+
+
+//teach class
