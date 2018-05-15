@@ -31,3 +31,5 @@ public class Visit extends BaseEntity {
     private Integer studentId;
 
 }
+
+// visit class

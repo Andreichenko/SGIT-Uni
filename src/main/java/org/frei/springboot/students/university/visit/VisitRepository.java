@@ -12,3 +12,7 @@ public interface VisitRepository extends Repository<Visit, Integer>{
 
     List<Visit> findByStudentId(Integer studentId);
 }
+
+
+
+// interface class
